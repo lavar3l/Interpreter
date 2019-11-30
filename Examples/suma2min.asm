@@ -1,0 +1,32 @@
+WEKTOR		DC 		10*INTEGER
+JEDEN 		DC		INTEGER(1)
+CZT			DC		INTEGER(4)
+ZERO 		DC 		INTEGER(0)
+ROZM		DC 		INTEGE(10)
+WYNIK 		DS 		INTEGER
+INF			DC 		INTEGER(1000000000)
+			READ 	WEKTOR(10)
+			LA		1, WEKTOR
+			L 		2, ZERO
+			L 		4, INF
+			L 		5, INF
+			S 		4, JEDEN
+PETLA		C 		2, ROZM
+			JZ 		KONIEC
+			L 		3, 0(1)
+			CR 		4, 3
+			JP 		ZMIEN1
+			JZ 		NIC
+			JN 		ZMIEN2
+ZMIEN1		LR 		6, 4
+			LR 		4, 3
+			LR 		3, 6
+ZMIEN2		CR 		5,3
+			JP 		ZAMIANA
+			J 		NIC
+ZAMIANA		LR 		5, 3
+NIC 		A 		2, JEDEN
+			A 		1, CZT
+			J 		PETLA
+KONIEC 		AR 		4, 5
+			ST 4, WYNIK
